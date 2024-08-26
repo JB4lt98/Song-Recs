@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /*background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(32,80,61,1) 0%, rgba(0,212,255,1) 0%, rgba(152,255,207,1) 36%);*/
+    background-color: whitesmoke;
+}
+
+nav{
+    background-color: rgb(74, 144, 146);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Nav code (horizontal)*/
+    nav ul{
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    nav li{
+        height: 50px;
+
+    }
+
+    nav a{
+        height: 100%;
+        padding: 0 30px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: black;
+    }
+
+    nav a:hover{
+        background-color: white;
+    }
+
+    nav li:first-child{
+        margin-right: auto;
+    }
+
+
+.bigText{
+    text-align: center;
+    font-size: 50px;
+    font-family: cursive ,copperplate, Arial, Helvetica, sans-serif;
+}
+
+.headerText{
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: left;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.parText{
+    text-align: center;
+    font-size: 20px;
+    margin-left: 70px;
+    margin-right: 70px;
+    line-height: 1.5;
+    margin-bottom: 50px;
+    color:crimson;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+.labelStyle{
+    margin-inline: auto;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div{
+    text-align: justify;
+    margin: 0 auto;
+    width: 30em;
+    margin-bottom: 5px;
+}
+
+.vertical-center {
+    text-align: justify;
+    margin: 0 auto;
+    width: 30em;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.big {
+    height: 40px;
+    width: 150px;
+}
+
+img{
+    margin-left: px;
+    display: none;
+}
+
+                                                            /* box */
+/* Container to hold the image and the list side by side */
+.hidden {
+    display: none;
+}
+.container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* Style the image placeholder */
+#image-placeholder {
+    margin-right: 20px;
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+}
+
+/* Style the results box */
+#results-box {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the list inside the box */
+#results-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#results-list li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+#results-list li:last-child {
+    border-bottom: none;
+}
