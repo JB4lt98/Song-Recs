@@ -29,20 +29,20 @@
     <div>
         <label class="labelStyle" for="genre">Choose a genre:</label>
             <select name="genres" id="genres">     
-                <option value="genre">genres</option>
+                <option value="genre">Genres</option>
             </select>
     </div>
 
     <div>
         <label class="labelStyle" for="year">Choose a year:</label>
-        <input name="years" id="years">
+        <input name="years" id="years" placeholder="Enter 4 digits (ex: 1984)">
         </input>
     </div>
    
     <div>
         <label class="labelStyle" for="speed">Choose a tempo:</label>
             <select name="speeds" id="speeds">     
-                <option value="speed">Tempo (speed in bpm)</option>
+                <option value="speed">Tempo (BPM)</option>
             </select>
     </div>
     <block>
@@ -53,7 +53,10 @@
 
     <div class="container">
         <!-- Image placeholder -->
-        <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="image-placeholder">
+        <figure id="song-info" class="theFig">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="image-placeholder">
+            <figcaption>Name: <br> Artist: </figcaption>
+        </figure>
     
         <!-- Placeholder for the list -->
         <div id="results-box" class="hidden">
@@ -61,6 +64,9 @@
                 <li>Result 1</li>
                 <li>Result 2</li>
                 <li>Result 3</li>
+                <li>Result 4</li>
+                <li>Result 5</li>
+                <li>Result 6</li>
             </ul>
         </div>
         <script>
