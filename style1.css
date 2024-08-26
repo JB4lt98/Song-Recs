@@ -121,6 +121,9 @@ img{
     height: 150px;
     background-color: #ccc;
 }
+#song-info{
+
+}
 
 /* Style the results box */
 #results-box {
@@ -145,4 +148,8 @@ img{
 
 #results-list li:last-child {
     border-bottom: none;
+}
+
+.theFig{
+    display: none;
 }
