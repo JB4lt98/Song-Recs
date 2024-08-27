@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Add your CSS and JavaScript files here -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Add your common header content here -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}"> Home</a></li>
+                <li><a href="{{ url_for('contact') }}"> Contact</a></li>
+                <li><a href="{{ url_for('bored') }}"> Bored</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add your main content here -->
+    <main>
+        {% block content %}
+        <!-- This is where the content from other files will be inserted -->
+        {% endblock %}
+    </main>
+
+</body>
+</html>
