@@ -121,9 +121,6 @@ img{
     height: 150px;
     background-color: #ccc;
 }
-#song-info{
-
-}
 
 /* Style the results box */
 #results-box {
@@ -152,4 +149,11 @@ img{
 
 .theFig{
     display: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
 }
