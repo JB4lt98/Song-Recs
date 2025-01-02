@@ -158,3 +158,13 @@ img{
     background-color: inherit;
     display: flex;
 }
+
+.center-spotify {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+    height: auto;
+    position: relative;
+    border: 3px solid #1DB954;
+    padding: 10px;
+}

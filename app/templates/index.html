@@ -9,9 +9,20 @@
         <h2 class="headerText" style="margin-left: 25px;">What's this?</h2>
     
         <p class="parText"> Ever feel like you've run out of music to listen to? Feel like you've over played those couple of songs? Don't fret! This site will help you find the next big song you'll reply over and over again! Just give us some info that you want us to consider, and we'll have a couple of results to have for you shortly!</p>
+        <p class="parText"> *To use this webapp, please be sure to sign in with spotify. This will allow the recommended songs to show up!</p>
 
-    <!--content-->
-    <div>
+        <!--Button goes here-->
+        <a href="https://www.spotify.com" target="_blank">
+            <img src="{{ url_for('static', filename='spotifyrequired.png') }}" 
+                 alt="Spotify Logo" 
+                 class="center-spotify">
+        </a>
+
+
+
+
+    <!--content that will appear once the redirect is successful-->
+    <!--<div>
         <label class="labelStyle" for="genre">Choose a genre:</label>
             <select name="genres" id="genres">     
                 <option value="genre">Genres</option>
@@ -34,26 +45,19 @@
     <div class="vertical-center">
         <button id="search-button" class="big" style="width: 100px; text-align: center;">search</button>
     </div>
-    </block>
-<!--
-    <form action="/authenticate" method="post">
-        <button type="submit">Authenticate with Spotify</button>
-    </form>-->
+    </block> -->
 
-    <block>
-        <a target="_blank" href="https://google.com/">
-            <img src="{{ url_for('static', filename='spotifyrequired.png') }}" alt="Spotify Logo">
-        </a>
-    </block>
 
+
+
+
+<!--more content that would appear after authentication success
     <div class="container">
-        <!-- Image placeholder -->
         <figure id="song-info" class="theFig">
             <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="image-placeholder">
             <figcaption>Name: <br> Artist: </figcaption>
         </figure>
     
-        <!-- Placeholder for the list -->
         <div id="results-box" class="hidden">
             <ul id="results-list">
                 <li>Result 1</li>
@@ -63,7 +67,9 @@
                 <li>Result 5</li>
                 <li>Result 6</li>
             </ul>
-        </div>
+        </div> -->
+
+        <!-- the JS for the button
         <script>
             document.getElementById('search-button').addEventListener('click', function() {
                 const resultsBox = document.getElementById('results-box');
@@ -81,13 +87,7 @@
                 }
             });
         </script>
-    </div>
-    <!--Auth Button (Attempt)
-    <form action="/authorize" method="post">
-        <button id="authbutt"type="submit">
-            <img src="static/Spotify_Logo_RGB_Green.png" alt="buttonpng" border="0" />
-          </button>
-    </form>-->
+    </div> -->
 
     
 {% endblock %}
