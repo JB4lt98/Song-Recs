@@ -40,9 +40,11 @@
         <button type="submit">Authenticate with Spotify</button>
     </form>-->
 
-    <a target="_blank" href="https://google.com/">
-        <img src="static/Spotify_Logo_RGB_Green.png" alt="buttonpng">
-    </a>
+    <block>
+        <a target="_blank" href="https://google.com/">
+            <img src="{{ url_for('static', filename='spotifyrequired.png') }}" alt="Spotify Logo">
+        </a>
+    </block>
 
     <div class="container">
         <!-- Image placeholder -->
