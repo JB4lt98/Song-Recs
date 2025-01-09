@@ -12,11 +12,11 @@
         <p class="parText"> *To use this webapp, please be sure to sign in with spotify. This will allow the recommended songs to show up!</p>
 
         <!--Button goes here-->
-        <a href="https://www.spotify.com" target="_blank">
+        <a href="{{ url_for('login') }}" target="_self">
             <img src="{{ url_for('static', filename='spotifyrequired.png') }}" 
                  alt="Spotify Logo" 
                  class="center-spotify">
-        </a>
+        </a>        
 
 
 

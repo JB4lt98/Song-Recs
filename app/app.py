@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv("APP.SECRET_KEY")
+app.secret_key = os.getenv("APP_SECRET_KEY")
 app.config['SESSION_COOKIE_NAME'] = 'Music Cookie'
 
 
@@ -16,34 +16,49 @@ app.config['SESSION_COOKIE_NAME'] = 'Music Cookie'
 def index():
     return render_template('index.html')
 
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
 
 @app.route('/bored')
 def bored():
     return render_template('bored.html')
 
-#spotify stuff below
 
-#will figure out the login later
+# Spotify authentication routes
+@app.route('/login')
+def login():
+    sp_oauth = create_spotify_oauth()
+    auth_url = sp_oauth.get_authorize_url()
+    return redirect(auth_url)
 
+
+@app.route('/redirect')
+def redirectPage():
+    sp_oauth = create_spotify_oauth()
+    code = request.args.get('code')
+    token_info = sp_oauth.get_access_token(code)
+    session['token_info'] = token_info
+    return render_template('authenticated.html')
+
+
+# Spotify functionality placeholder
 @app.route('/getTracks')
 def getTracks():
     return 'the music'
 
-@app.route('/redirect')
-def redirect():
-    return render_template('Authenticated.html')
 
+# Spotify OAuth helper function
 def create_spotify_oauth():
     return SpotifyOAuth(
-        client_id= os.getenv("CLIENT_ID"),
-        client_secret= os.getenv("CLIENT_SECRET"),
-        redirect_uri= url_for('/redirect', external=True),
-        scope= "user-library-read"
+        client_id=os.getenv("CLIENT_ID"),
+        client_secret=os.getenv("CLIENT_SECRET"),
+        redirect_uri=url_for('redirectPage', _external=True),
+        scope="user-library-read"
     )
+
 
 if __name__ == '__main__':
     app.run()
-
