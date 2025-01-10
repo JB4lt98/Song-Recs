@@ -1,58 +1,54 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
-    /*background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(32,80,61,1) 0%, rgba(0,212,255,1) 0%, rgba(152,255,207,1) 36%);*/
+body {
     background-color: whitesmoke;
 }
 
-nav{
+nav {
     background-color: rgb(74, 144, 146);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Nav code (horizontal)*/
-    nav ul{
-        width: 100%;
-        list-style: none;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    nav li{
-        height: 50px;
-
-    }
-
-    nav a{
-        height: 100%;
-        padding: 0 30px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        color: black;
-    }
-
-    nav a:hover{
-        background-color: white;
-    }
-
-    nav li:first-child{
-        margin-right: auto;
-    }
-
-
-.bigText{
-    text-align: center;
-    font-size: 50px;
-    font-family: cursive ,copperplate, Arial, Helvetica, sans-serif;
+/* Nav code (horizontal) */
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.headerText{
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover {
+    background-color: white;
+}
+
+nav li:first-child {
+    margin-right: auto;
+}
+
+.bigText {
+    text-align: center;
+    font-size: 50px;
+    font-family: cursive, copperplate, Arial, Helvetica, sans-serif;
+}
+
+.headerText {
     text-decoration: underline;
     font-weight: bold;
     text-align: left;
@@ -60,25 +56,25 @@ nav{
     margin-bottom: 25px;
 }
 
-.parText{
+.parText {
     text-align: center;
     font-size: 20px;
     margin-left: 70px;
     margin-right: 70px;
     line-height: 1.5;
     margin-bottom: 50px;
-    color:crimson;
+    color: crimson;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.7;
 }
 
-.labelStyle{
+.labelStyle {
     margin-inline: auto;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-div{
+div {
     text-align: justify;
     margin: 0 auto;
     width: 30em;
@@ -98,20 +94,20 @@ div{
     width: 150px;
 }
 
-img{
+img {
     margin-left: px;
     display: none;
 }
 
-                                                            /* box */
-/* Container to hold the image and the list side by side */
 .hidden {
     display: none;
 }
+
 .container {
     display: flex;
     align-items: flex-start;
     margin-top: 20px;
+    flex-direction: row; /* Keep the list and image side by side */
 }
 
 /* Style the image placeholder */
@@ -147,14 +143,37 @@ img{
     border-bottom: none;
 }
 
-.theFig{
+.theFig {
     display: none;
 }
 
-#authbutt{
+#authbutt {
     border: none;
     cursor: pointer;
     appearance: none;
     background-color: inherit;
     display: flex;
+}
+
+/* Style for the logout button */
+.logout-button {
+    background-color: #ff4d4d;  /* Red background for logout */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Adds some space between the list and the logout button */
+    width: 100%; /* Make the logout button take up the full width */
+}
+
+.logout-button:hover {
+    background-color: #e60000;  /* Darker red on hover */
+}
+
+/* Ensure the logout button is always positioned beneath the results list */
+#logout-wrapper {
+    margin-top: 20px;
 }

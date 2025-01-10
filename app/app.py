@@ -14,7 +14,10 @@ app.config['SESSION_COOKIE_NAME'] = 'Music Cookie'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if 'token_info' not in session:  # Check if the user is NOT authenticated
+        return render_template('index.html')  # Show the unauthenticated page first
+    else:
+        return render_template('authenticated.html')  # Show the authenticated page
 
 
 @app.route('/contact')
@@ -41,13 +44,14 @@ def redirectPage():
     code = request.args.get('code')
     token_info = sp_oauth.get_access_token(code)
     session['token_info'] = token_info
-    return render_template('authenticated.html')
+    return redirect(url_for('index'))  # Redirect back to home after successful authentication
 
 
-# Spotify functionality placeholder
-@app.route('/getTracks')
-def getTracks():
-    return 'the music'
+# Logout route
+@app.route('/logout')
+def logout():
+    session.clear()  # Clear session to log out the user
+    return redirect(url_for('index'))  # Redirect to home page after logout
 
 
 # Spotify OAuth helper function

@@ -30,12 +30,12 @@
                 <option value="speed">Tempo (BPM)</option>
             </select>
     </div>
-    <block>
+    
     <div class="vertical-center">
         <button id="search-button" class="big" style="width: 100px; text-align: center;">search</button>
     </div>
-    </block>
 
+    <!-- Results Section -->
     <div class="container">
         <!-- Image placeholder -->
         <figure id="song-info" class="theFig">
@@ -54,24 +54,28 @@
                 <li>Result 6</li>
             </ul>
         </div>
-        <script>
-            document.getElementById('search-button').addEventListener('click', function() {
-                const resultsBox = document.getElementById('results-box');
-                const imagePlaceholder = document.getElementById('image-placeholder');
-                const songInfo = document.getElementById('song-info');
-        
-                if (resultsBox.style.display === 'none' || resultsBox.style.display === '') {
-                    resultsBox.style.display = 'block';
-                    imagePlaceholder.style.display = 'block'; // Show the image
-                    songInfo.style.display = 'block';
-                } else {
-                    resultsBox.style.display = 'none';
-                    imagePlaceholder.style.display = 'none'; // Hide the image
-                    songInfo.style.display = 'none';
-                }
-            });
-        </script>
     </div>
 
-    
+    <!-- Logout button placed below the results section -->
+    <div class="vertical-center">
+        <a href="{{ url_for('logout') }}"><button class="logout-button">Logout</button></a>
+    </div>
+
+    <script>
+        document.getElementById('search-button').addEventListener('click', function() {
+            const resultsBox = document.getElementById('results-box');
+            const imagePlaceholder = document.getElementById('image-placeholder');
+            const songInfo = document.getElementById('song-info');
+        
+            if (resultsBox.style.display === 'none' || resultsBox.style.display === '') {
+                resultsBox.style.display = 'block';
+                imagePlaceholder.style.display = 'block'; // Show the image
+                songInfo.style.display = 'block';
+            } else {
+                resultsBox.style.display = 'none';
+                imagePlaceholder.style.display = 'none'; // Hide the image
+                songInfo.style.display = 'none';
+            }
+        });
+    </script>
 {% endblock %}
