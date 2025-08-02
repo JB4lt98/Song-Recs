@@ -14,10 +14,10 @@ app.config['SESSION_COOKIE_NAME'] = 'Music Cookie'
 
 @app.route('/')
 def index():
-    if 'token_info' not in session:  # Check if the user is NOT authenticated
-        return render_template('index.html')  # Show the unauthenticated page first
+    if 'token_info' not in session:
+        return render_template('index.html') 
     else:
-        return render_template('authenticated.html')  # Show the authenticated page
+        return render_template('authenticated.html')
 
 
 @app.route('/contact')
@@ -44,7 +44,7 @@ def redirectPage():
     code = request.args.get('code')
     token_info = sp_oauth.get_access_token(code)
     session['token_info'] = token_info
-    return redirect(url_for('index'))  # Redirect back to home after successful authentication
+    return redirect(url_for('index')) 
 
 
 # Logout route
@@ -60,8 +60,27 @@ def create_spotify_oauth():
         client_id=os.getenv("CLIENT_ID"),
         client_secret=os.getenv("CLIENT_SECRET"),
         redirect_uri=url_for('redirectPage', _external=True),
-        scope="user-library-read"
+        scope="user-library-read playlist-modify-public playlist-modify-private"
     )
+
+
+#Music Time !!!!
+
+@app.route('/get_genres', methods=['GET'])
+def get_genres():
+    token_info = session.get('token_info')
+    if not token_info:
+        return redirect(url_for('login'))  # Redirect to login if token is missing
+
+    sp = spotipy.Spotify(auth=token_info['access_token'])
+    available_genres = sp.recommendation_genre_seeds()
+    genres = available_genres['genres']
+
+    # Print genres to check if the call to Spotify API is successful
+    print(genres)
+
+    # Pass genres to the template
+    return render_template('authenticated.html', genres=genres)
 
 
 if __name__ == '__main__':

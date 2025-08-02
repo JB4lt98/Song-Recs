@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <link rel="stylesheet" href="static/authented.css">
+    
     <!--content-->
         <block>
             <h1 class="bigText">Song Recommender</h1>
@@ -8,13 +9,16 @@
 
         <h2 class="headerText" style="margin-left: 25px;">What's this?</h2>
     
-        <p class="parText"> Ever feel like you've run out of music to listen to? Feel like you've over played those couple of songs? Don't fret! This site will help you find the next big song you'll reply over and over again! Just give us some info that you want us to consider, and we'll have a couple of results to have for you shortly!</p>
+        <p class="parText"> Ever feel like you've run out of music to listen to? Feel like you've over played those couple of songs? Don't fret! This site will help you find the next big song you'll replay over and over again! Just give us some info that you want us to consider, and we'll have a couple of results to have for you shortly!</p>
 
     <!--content-->
     <div>
         <label class="labelStyle" for="genre">Choose a genre:</label>
-            <select name="genres" id="genres">     
+            <select name="genres" id="genres">
                 <option value="genre">Genres</option>
+                {% for genre in genres %}
+                    <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
             </select>
     </div>
 
@@ -26,9 +30,12 @@
    
     <div>
         <label class="labelStyle" for="speed">Choose a tempo:</label>
-            <select name="speeds" id="speeds">     
-                <option value="speed">Tempo (BPM)</option>
-            </select>
+        <select name="speeds" id="speeds">
+            <option value="speed">Tempo (BPM)</option>
+            <option value="0-60">Slow (0-60 BPM)</option>
+            <option value="60-120">Moderate (60-120 BPM)</option>
+            <option value="120-180">Fast (120-180 BPM)</option>
+        </select>
     </div>
     
     <div class="vertical-center">
@@ -62,22 +69,7 @@
     </div>
 
 <!--JavaScript will go under here-->
+<script src="{{ url_for('static', filename='js/theJS.js') }}"></script>
 
-    <script>
-        document.getElementById('search-button').addEventListener('click', function() {
-            const resultsBox = document.getElementById('results-box');
-            const imagePlaceholder = document.getElementById('image-placeholder');
-            const songInfo = document.getElementById('song-info');
-        
-            if (resultsBox.style.display === 'none' || resultsBox.style.display === '') {
-                resultsBox.style.display = 'block';
-                imagePlaceholder.style.display = 'block'; // Show the image
-                songInfo.style.display = 'block';
-            } else {
-                resultsBox.style.display = 'none';
-                imagePlaceholder.style.display = 'none'; // Hide the image
-                songInfo.style.display = 'none';
-            }
-        });
-    </script>
+
 {% endblock %}
